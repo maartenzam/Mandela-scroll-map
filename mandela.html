@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>In Mandela se voetspore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<!-- <link href="mandela.css" rel="stylesheet" media="screen"> -->
+	<style type="text/css">
+	/*@media (min-width: 979px) {
+		  #sidebar.affix-top {
+		    position: static;
+		  	margin-top:25px;
+		  	width:228px;
+		  }*/
+		  
+		  #sidebar.affix {
+		    position: fixed;
+		    top:25px;
+		    width:228px;
+		  }
+		
+		.affix,.affix-top {
+		   position:static;
+		}
+		
+		#sidebar {
+		    position: fixed;
+		    top:25px;
+		    width:228px;
+		  }
+		
+		.active {
+			font-weight: bold;
+		}
+		
+		.nav li a.menulink {
+			padding-left: 15px;
+			padding-top: 2px;
+			padding-bottom: 2px;
+		}
+		
+		span {
+			font-weight: bold;
+			color: #2a6496;
+		}
+	
+	</style>
+	<link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
+  	<script src='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
+  	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	<style>
+	  #map {
+	    width:250px;
+	    height:250px;
+	  }
+	</style>
+	
+	<script type="text/javascript">
+	var locations = [
+		      ['Zuid-Afrika', -28, 25, 4],
+		      ['Houtbaai', -34.055, 18.354549407958984, 13],
+		      ['Heart Hospital, Pretoria', -25.749236, 28.2072901, 17],
+		      ['Mvezo', -31.960700, 28.4943294, 15],
+		      ['Uniegebouwen, Pretoria', -25.739949, 28.212043, 16],
+		      ['Howick', -29.481, 30.211, 13],
+		      ['Robbeneiland', -33.80757213739006, 18.373217582702637, 13],
+		      ['Vilakazi Street', -26.238661, 27.908760, 17],
+		      ['Liliesleaf Farm', -26.043567, 28.054018, 17],
+		      ['Old Fort Prison', -26.18935, 28.043021, 17],
+		      ['Soweto', -26.2217, 27.878494, 12],
+		      ['Orlando Stadium', -26.231568, 27.922847, 17],
+		      ['Nkandla', -28.8438, 31.09799, 16],
+		      ['Muizenberg Beach', -34.09919, 18.49523, 14]
+		      ];
+	
+	//Set map
+	
+
+	
+	function initialize() {
+		var kaart = L.mapbox.map('map', 'maartenzam.map-d4plzvun');
+		kaart.setView([-28, 25], 4);
+			
+		$(document).on('activate.bs.scrollspy',function () {
+		  var activelocation = $('.active a').text();
+		  for(var i = 0; i < locations.length; i++) {
+	        if (locations[i][0] == activelocation) {
+	        	var activelat = locations[i][1];
+	        	var activelong = locations[i][2];
+	        	ll = new L.LatLng(activelat, activelong);
+	        	activezoom = locations[i][3];
+	        	activecoords = new L.LatLng(activelat, activelong);
+	        	kaart.setView(activecoords, activezoom); 
+	    	}; 
+		  }	
+		});		
+	};
+	
+	
+	
+	</script>
+	
+  </head>
+  <body onload="initialize()" data-spy="scroll" data-target="#sidebar">	  	  	
+
+<!-- Begin Body -->
+
+<div class="container">
+	<div class="col-sm-5">
+ 
+          
+          	<div class="bs-sidebar affix" id="sidebar">
+          		<ul class="nav bs-sidenav">
+          			<li><div id='map'></div></li>
+          			<li><a href="#Zuidafrika" class="menulink">Zuid-Afrika</a></li>
+          			<li><a href="#Houtbaai" class="menulink">Houtbaai</a></li>
+          			<li><a href="#Hearthospital" class="menulink">Heart Hospital, Pretoria</a></li>
+          			<li><a href="#Mvezo" class="menulink">Mvezo</a></li>
+          			<li><a href="#Uniegebouwen" class="menulink">Uniegebouwen, Pretoria</a></li>
+          			<li><a href="#Howick" class="menulink">Howick</a></li>
+          			<li><a href="#Robbeneiland" class="menulink">Robbeneiland</a></li>
+              		<li><a href="#Vilakazi" class="menulink">Vilakazi Street</a></li>
+              		<li><a href="#Liliesleaf" class="menulink">Liliesleaf Farm</a></li>
+              		<li><a href="#Oldfortprison" class="menulink">Old Fort Prison</a></li>
+              		<li><a href="#Soweto" class="menulink">Soweto</a></li>
+              		<li><a href="#Orlandostadium" class="menulink">Orlando Stadium</a></li>
+              		<li><a href="#Nkandla" class="menulink">Nkandla</a></li>
+              		<li><a href="#Muizenberg" class="menulink">Muizenberg Beach</a></li>
+              	</ul>
+            </div>
+              
+      		</div>  
+      		<div class="col-sm-7">
+              	<h1>In Mandela se Voetspore</h1>
+                <p class="lead">Ik wil terug naar <span id="Zuidafrika">Zuid-Afrika</span>. Om voor mezelf uit te maken wat Nelson Mandela heeft betekend. En omdat ik nooit zijn huis, geboortedorp of schuiloorden heb gezien. Misschien neem ik wel toeristen mee. In het spoor van Nelson Mandela. Zou dat niet aanslaan?</p>
+              
+              	<p>'Vlamingen gaan heus geen duizenden euro's neertellen om iets over een held te leren,' zegt Johan Beke van VIZA, het Vlaams Instituut voor Zuidelijk Afrika, 'zonder ook een bezoek te willen brengen aan de leeuwen in het Krugerpark of de walvissen in <span id="Houtbaai">Houtbaai.</span>'</p>
+
+<p>Johan heeft al vaker reizen naar Zuid-Afrika georganiseerd, in samenwerking met een lokaal reisbureau. Vanaf 2014 mag iedereen in Vlaanderen trouwens een groepsreis organiseren. Want dan is de vergunningsplicht helemaal afgeschaft. 'Weet je? Ik zal vragen aan mijn reisbureau dat ze een voorstel op papier zetten, iets als in Mandela se voetspore.'</p>
+
+<p>Johan is Vlaming, maar spreekt ook Afrikaans, net als Nelson Mandela trouwens. Afrikaans is vandaag een van de elf officiële talen in Zuid-Afrika en wordt daar vooral door blanken en <em>bruinmense</em> of coloured gesproken. Het was echter ook de voertaal van de <em>Nasionale Party</em> (NP) die vorige eeuw de "gescheiden ontwikkeling" van blanken en <em>nieblankes</em> voorstond. Die zogenaamde apartheid werd door de NP in 1948 uitgeroepen tot een racistische staatsideologie. <em>Die kaffer op sy plek</em>. Een zwarte kon zijn <em>township</em> en zijn thuisland of <em>bantoestan</em> niet meer uit, tenzij op vertoon van een pasje en dan meestal alleen nog om te gaan ploeteren als dienstmeid van een blanke baas of als goedkope werkkracht in een diepe mijnschacht of op een grote boerderij. Tegen de in feite al eeuwenoude discriminatie van Zuid-Afrikaanse <em>inboorlinge</em> zou Nelson Mandela vechten, en met succes. </p>
+
+<h2>Nooit, nooit en nooit weer</h2>
+
+<p>We schrijven 10 juni 2013 en Madiba - zoals Mandela's clannaam luidt - ligt al twee dagen met een longinfectie in het <span id="Hearthospital">Medi-Clinic Heart Hospital in Pretoria</span>. Uit mijn printer schokt het reisprogramma dat Johan beloofde. Toeristische toppers (Tsitsikamma, Drakensbergen, de Tafelberg) wisselen af met plaatsen die ik herken uit Mandela's autobiografie <em>De lange weg naar de vrijheid</em>, in het Nederlands bij uitgeverij Atlas/Contact.</p>
+
+<p>In zijn geboortestreek Transkei zijn dat <span id="Mvezo">Mvezo, <em>die dorpie waar Mandela gebore is</em></span>, Qunu, <em>waar hy 'n beeswagter was</em> - een herdersjongen- en Mqhekezweni, waar hij onder voogdij kwam van Thembu-chef en koning-regent Jongintaba en opgroeide met diens zoon Justice. Madiba was voorbestemd om raadgever te worden van de troonopvolger, tot Justice en hij allebei de benen namen richting Johannesburg, op de vlucht voor een gearrangeerd huwelijk dat ze niet zagen zitten. In Johannesburg begint de jonge Nelson Mandela samen met Oliver Tambo een advocatenkantoor en zal hij het ANC nieuw leven inblazen, dat sinds de oprichting in 1912 een beetje was ingedommeld. Voor de <span id="Uniegebouwen">Uniegebouwen in Pretoria</span>, <em>waar die kantore van die Staatspresident gehuisves is</em>, zal Mandela  op 10 mei 1994 de eed afleggen als nieuwe president. '<em>Nooit, nooit en nooit weer zal dit prachtige land de onderdrukking van de een door de ander meemaken.</em>' Mandela is een icoon geworden en Zuid-Afrika niet langer de paria van de wereld.</p>
+
+<p>Maar ook KwaZulu-Natal, de provincie van huidig president Jacob Zuma, staat op de acht velletjes die uit de printer rollen. In <span id="Howick">Howick</span>, op 100 km van Durban, stad van de <em>Sharks</em>, staat het mooiste Mandela-monument van heel Zuid-Afrika. <em>Op 5 augustus 1962 is Nelson Mandela in hegtenis geneem in Howick. Dit het gelei tot die Rivonia Verhoor en sy skuldigbevinding.</em> In Howick eindigt dit jaar ook de tweede Mandela Day Marathon. Natuurlijk ontbreekt ook <span id="Robbeneiland">Robbeneiland</span> niet, noch Pollsmoor, de bedompte gevangenis waar hij tbc opliep, noch Victor Verster bij Paarl, waar hij op 11 februari 1990 vrijkomt, na 27 jaar en 7 maanden hechtenis.</p>
+
+<p>Mandela kreeg levenslang op beschuldiging van sabotage, tijdens het zogenaamde Rivonia-proces, officieel 'De Staat vs N Mandela en Anderen' (1963-1964). In Rivonia, nu een buitenwijk van Johannesburg, staat het <span id="Liliesleaf"><em>Liliesleaf Landgoed</em></span> nog altijd overeind. Hier werd het bijna voltallige opperbevel van de <em>Umkhonto we Sizwe</em>, de 'Speer der Natie' ingerekend, de gewapende vleugel van het ANC die Mandela had opgericht , en werd belastend bewijsmateriaal gevonden tegen hem en zijn medebeklaagden. <em>Die plaas is nou 'n museum en werelderfenisgebied.</em> Terwijl ook de wereld de adem inhield, gebruikte Mandela zijn pleidooi in het Justitiepaleis op Church Square, Pretoria, om het apartheidsregime aan de kaak te stellen. Hij was van toen af Zuid-Afrika's bekendste vrijheidsstrijder.</p>
+
+<p>Maar in <span id="Vilakazi">8115 Orlando West, in de Vilakazi Street</span>, is na zijn vrijlating het echtelijk bed leeg en kil. Zijn tweede huwelijk met Winnie Madikizela, die zich tijdens zijn gevangenschap door moord en brand onmogelijk had gemaakt, was op de klippen gelopen. Tijdens het pijnlijke echtscheidingsproces in 1996 zal Mandela met tegenzin verklaren dat Winnie sinds zijn vrijlating <em>niet één keer de slaapkamer in kwam terwijl ik nog wakker was.</em></p>
+
+<h2>Soweto</h2>
+
+<p>Ik bel een aantal bevriende Zuid-Afrikanen op en vraag wat zij van een reis in Mandela's voetspoor denken. Clive van den Berg, een bekend kunstenaar, zal ons zeker Constitutional Hill in Johannesburg aanraden. Logisch. Hij werkte zelf mee aan de herinrichting van <span id="Oldfortprison">de oude gevangenissite van de Old Fort Prison</span>, waar nu het Grondwettelijk Hof zetelt, vandaar de naam. Het cellencomplex werd tijdens de Anglo-Boerenoorlog gebouwd door Paul Kruger en zal later Mahatma Gandhi, Nelson Mandela, Robert Sobukwe, leider van het <em>Pan African Congress</em>, en het hele kruim van de verzamelde anti-apartheidsbeweging zien passeren. In het boek dat Clive me bezorgt, <em>Mapping Memory. Former Prisoners Tell their Stories</em>, staan enkele verhalen en tekeningen van de duizenden gewone Zuid-Afrikanen die hier ook hebben vastgezeten, <em>caught in the web of colonial and apartheid oppression</em>.</p>
+
+<p>'Volgens de algemeen aanvaarde versie van het verhaal was de strijd tegen de apartheid een zaak van enkelingen', zucht Melissa Mboweni aan de telefoon. Zij cureerde in 2007 de tentoonstelling <em>Jive Soweto</em> in het Hector Pietersonmuseum in <span id="Soweto">Soweto, de SOuth WEstern TOwnships</span>. Dat huldigt de vele scholieren die op 16 juni 1976 op straat kwamen tegen de invoering van Afrikaans in het sowieso al ondermaatse <em>Bantoe</em>-onderwijs. Bijna tweehonderd jongeren vielen onder de kogels van de Zuid-Afrikaanse ordediensten. De jongerenopstand van Soweto werd een keerpunt in de apartheidsstrijd en kwam op een ogenblik dat het ANC vleugellam was. Mandela en zijn strijdmakkers zaten vast op Robbeneiland, het ANC in ballingschap was besluiteloos en verdeeld – aldus huidig presidentswoordvoerder Mac Maharaj – en de <em>Speer der Natie</em> was geen partij voor het repressieapparaat van de NP.</p>
+
+<p>Heeft de <em>Madiba Magic</em> ons verblind voor de strijd van anderen en van onszelf? Beweerde Mamphela Ramphele, de vriendin van wijlen Steve Biko die dé inspiratie was voor de boze jongeren in Soweto, ook niet iets in die trant? 'Misschien hebben we President Mandela te zeer geïdealiseerd en hadden we te weinig oog voor onze eigen rol als burgers, om samen met onze leiders te bouwen aan de toekomst.' Dit komt uit haar voor het overige lovende opiniestuk uit 2009, geciteerd in de zeer lezenswaardige <em>Rough Guide to Nelson Mandela</em> van Max du Preez. Zelf had Madiba in zijn autobiografie ook al benadrukt dat hij 'geen Messias was, maar een gewone man, die door buitengewone omstandigheden leider was geworden'.</p>
+
+<p>'Ik zie geen been in een Mandela-trip,' zegt Melissa Mboweni, 'want tenslotte gaf hij ons hoop toen alles tegenzat. Maar elk van ons heeft zijn strijd gestreden, ik ook. Alleen staat mijn achternaam niet in de geschiedenisboeken, ik ben niet bij het ANC en dus ontbreekt het mij aan <em>struggle credibility</em> en alle voordelen die dat met zich meebrengt.' Volgens Melissa blijven we beter weg uit de Vilakasiestraat, nochtans aangeprezen als <em>die straat waar twee Nobel Vredespryswenners, naamlik Mandela en Tutu, het gewoon</em>. 'Ga buurten in een kapsalon in Soweto of koop tickets voor een concert in het <span id="Orlandostadium">Orlando Stadium</span>.' 
+Leuk voor de jongsten wordt zeker ook muurklimmen of springen van de Orlando Towers, of waarom ook niet, een deelname aan de Soweto Marathon. 'Dan raak je aan de praat met gewone Zuid-Afrikanen, die elk hun verhaal vertellen.' Waarom niet inderdaad? Want was Mandela behalve bokser niet ook een begenadigd hardloper?</p>
+
+<h2>De koeien van Zuma</h2>
+
+<p>Het is 18 juli en <em>the old man</em> ligt helaas zwaar ziek te bed. Vandaag wordt hij 95 jaar. Er zit een mail uit Zuid-Afrika in mijn inbox. <em>This has to be handled with extreme sensitivity and care.</em> Gevolgd door 64 uitroeptekens. Het bericht komt van Natalie Buttress, een radiostem uit Plettenberg Bay. 'Voor mij is er maar één invalshoek. Madiba de Legende, een held die de wereld voor zich innam en redding bracht in tijden van onderdrukking. Maar ja, dat heb je van een echte Madiba-fan natuurlijk.' Natalie raadt me aan me te richten tot de Nelson Mandela Foundation. Die beheert 's mans nalatenschap en is volop in het nieuws omdat Mandela's (klein)kinderen ruziën over zijn erfenis, terwijl Tata doodziek in Pretoria ligt. 'Het laatste wat je mag doen, is een land in rouw voor het hoofd stoten.'</p>
+
+<p>Maar volgens de laatste berichten leeft Mandela nog. Wereldwijd viert men vandaag zelfs Mandela Day. Op verzoek van de VN besteden vrijwilligers dan 67 minuten aan een goed doel, ter ere van Mandela die 67 jaren opofferde voor de goede zaak.</p>
+
+<p>Andy Mason ging vanmorgen naar Muizenberg, Kaapstad. In een <em>township</em> heeft hij daar een boom geplant. 'Mandela heeft ruimte gegeven aan de democratie.' Andy is schrijver en een veteraan onder de politieke cartoontekenaars. Mandela toonde altijd al respect voor de scheiding der machten, voor eenheid en diversiteit en voor de vrije meningsuiting. Fijn, maar hoe toon je dat tijdens een groepsreis? 'Jullie kunnen in de paasvakantie afreizen. Dan zijn het bijna verkiezingen en zien jullie onze democratie aan het werk. In de aanloop naar de twintigste verjaardag van <em>Freedom Day</em> zal er bovendien veel te doen zijn.'</p>
+
+<p>Of moeten we toch maar een ommetje maken langs <span id="Nkandla">Nkandla</span>, waar president Jacob Zuma zijn huis liet optrekken? Het villacomplex in Zoeloestijl, gelegen in de provincie KwaZulu-Natal, heeft veel stof doen opwaaien. Alleen het onderkomen voor Zuma’s veestapel in Nkandla heeft de belastingbetaler reeds 1 miljoen rand gekost, schrijft de Mail & Guardian. 'Nkandlagate, zoals wij het noemen, is een metafoor voor de manier waarop het ANC de erfenis van Mandela verkwanselt, door machtswellust en corruptie. Toen we vanmorgen boompjes gingen planten, konden we echter nog altijd dat verlangen voelen naar een niet-racistische, vredelievende en democratische samenleving. Allemaal slogans van the Struggle, onze strijd tegen de apartheid.'</p>
+
+<p>Misschien gaan we dus wel de hort op in <em>townships</em>, op zoek naar scholen, crèches en ziekenhuizen die Mandela's naam dragen. 'Of vraag het Mandela Kinderfonds naar de projecten die zij steunen. Zo kom je op plaatsen die je nog niet kent. Het zal een zeer inspirerende ervaring zijn.'</p>
+
+<h2>Road trip</h2>
+
+<p>Of toch liever een middagje aan het strand? In <span id="Muizenberg">Muizenberg, een ideale plek voor beginnende surfers</span>, leren we de kneepjes van het vak bij Gary's Surf. Gary Kleinhans runt naar eigen zeggen de oudste school van Zuid-Afrika en leidde ook jongeren uit probleemwijken op tot kampioenen. Misschien komen we zo meer te weten dan tijdens een “stadsloop” in de armere buurten.</p>
+<p>Er is in wezen niks mis met een <em>township tour</em>', weet Andre Trantraal, de voorlaatste Zuid-Afrikaan die we bellen. 'Maar zelfs ondanks goede intenties blijft het link.' Andre is cartoonist en tekent samen met zijn broer <em>Coloureds</em> en <em>The Richenbaums</em>: liefelijke manga's, maar met intrieste scènes uit het leven in Bishop Lavis en Mitchell's Plain. Andre spreekt zoals hij tekent: zacht maar zonder genade. 'Een Europeaan zijn eerste zorg, wanneer hij naar een overwegend gekleurde <em>township</em> gaat, moet veiligheid zijn, althans in sommige wijken. Wat onze arme mensen bezighoudt, is immers van economische aard, als je begrijpt wat ik bedoel. Zij hebben nog altijd moeite de eindjes aan elkaar te knopen.'</p>
+
+<p>Werpt de apartheid, toen kleur en ras ook ruimtelijk helemaal gescheiden leefden, nog altijd haar lange schaduw? Chenette Swaenepoel, een kunstcurator uit Johannesburg die momenteel rond zwarte sublculturen werkt, beweert dat Zuid-Afrikanen in hun eigen luchtbel leven. <em>There is no common ground for most South Africans</em>. Om haar punt duidelijker te maken mailde ze mij een link naar Bittereinder, de videoclip van Jack Parow en Tumi Molekane. Maar er is hoop, zegt ze. 'Je moet maar eens surfen naar de fotoblog van <em>I see a different you</em>. Die twee fotobloggers zijn het levende bewijs van Mandela's erfenis en staan voor de nieuwe Zuid-Afrikaan.' Andre Trantraal is voorzichtiger. 'In de wijken waar ik opgroeide, zullen jullie toch nog bekeken worden als mensen met geld, een betere scholing, een hogere status en... <em>wit</em>. Hoe meer je aanleunt bij blanken en hoe blanker je huid, hoe beter. Dat is de mentaliteit waarin ik ben opgegroeid en die nog voortleeft.'</p>
+
+<p>'Nu heb ik je wel alle geheimen van mijn <em>stam</em> verklapt', lacht hij ietwat beduusd. Maar dankbaar voor zoveel openheid vraag ik of Andre ons volgend jaar wil inwijden in cartoontekenen. 'Krijgen onze creativo's misschien zin om onze trip uit te tekenen, zoals Jacques de Loustal onlangs in <em>South African Road Trip</em>.' Hij spreekt trouwens ook Afrikaans. 'Dat kunnen jullie verstaan, toch?'</p>
+
+<p>Er komt nog meer hoopgevend nieuws uit Zuid-Afrika. <em>Personally I believe this is a good project, not only to attract tourists, but also to educate and coach them about the relevant facts regarding our respected Hero.</em> Een bevriend ex-diplomaat uit Zuid-Afrika heeft de loftrompet gestoken over onze reis, dan nog bij een hoge pief van het Nelson Mandela Childrens' Fund. Dat belooft wat. We gaan concreter plannen. Zou u graag alvast reserveren?</p>
+              	
+              	
+      		</div> 
+  	</div>
+</div>
+    
+<script type="text/javascript">
+    	$('#sidebar').affix({
+      		offset: {
+        	top: 200
+      			}
+			});
+</script>
+ 
+  </body>
+</html>
